@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "complex-component",
+  "type": "registry:block",
+  "title": "Complex Component",
+  "description": "A complex component showing hooks, libs and components",
+  "dependencies": [
+    "zod",
+    "@/registry/new-york/ui/card"
+  ],
+  "files": [
+    {
+      "path": "app/pokemon/page.tsx",
+      "type": "registry:page",
+      "content": "import { createResource, For, Show, Suspense } from \"solid-js\";\nimport { getPokemonList } from \"./lib/pokemon\";\nimport { PokemonCard } from \"./components/pokemon-card\";\n\nexport function PokemonPage() {\n  const [pokemonList] = createResource(() => getPokemonList({ limit: 12 }));\n\n  return (\n    <div class=\"container mx-auto max-w-4xl p-4\">\n      <Suspense\n        fallback={\n          <div class=\"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4\">\n            <For each={Array(12).fill(null)}>\n              {() => (\n                <div class=\"h-40 bg-muted animate-pulse rounded-xl\" />\n              )}\n            </For>\n          </div>\n        }\n      >\n        <Show when={pokemonList()}>\n          {(data) => (\n            <div class=\"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4\">\n              <For each={data().results}>\n                {(pokemon) => <PokemonCard name={pokemon.name} />}\n              </For>\n            </div>\n          )}\n        </Show>\n      </Suspense>\n    </div>\n  );\n}\n"
+    },
+    {
+      "path": "components/pokemon-card.tsx",
+      "type": "registry:component",
+      "content": "import { createResource, Show, Suspense } from \"solid-js\";\nimport { getPokemon } from \"../lib/pokemon\";\nimport { Card, CardContent } from \"@/registry/new-york/ui/card\";\nimport { PokemonImage } from \"./pokemon-image\";\n\ninterface PokemonCardProps {\n  name: string;\n}\n\nexport function PokemonCard(props: PokemonCardProps) {\n  const [pokemon] = createResource(() => props.name, getPokemon);\n\n  return (\n    <Suspense\n      fallback={\n        <Card class=\"w-full\">\n          <CardContent class=\"flex flex-col items-center justify-center p-4\">\n            <div class=\"w-24 h-24 bg-muted animate-pulse rounded-full\" />\n            <div class=\"h-4 w-20 bg-muted animate-pulse rounded mt-2\" />\n          </CardContent>\n        </Card>\n      }\n    >\n      <Show when={pokemon()}>\n        {(data) => (\n          <Card class=\"w-full\">\n            <CardContent class=\"flex flex-col items-center justify-center p-4\">\n              <PokemonImage name={data().name} number={data().id} />\n              <p class=\"text-sm font-medium capitalize mt-2\">{data().name}</p>\n            </CardContent>\n          </Card>\n        )}\n      </Show>\n    </Suspense>\n  );\n}\n"
+    },
+    {
+      "path": "components/pokemon-image.tsx",
+      "type": "registry:component",
+      "content": "import { usePokemonImage } from \"../hooks/use-pokemon\";\n\ninterface PokemonImageProps {\n  name: string;\n  number: number;\n}\n\nexport function PokemonImage(props: PokemonImageProps) {\n  const imageUrl = usePokemonImage(props.number);\n\n  return (\n    <img\n      src={imageUrl}\n      alt={props.name}\n      class=\"w-24 h-24 object-contain\"\n    />\n  );\n}\n"
+    },
+    {
+      "path": "lib/pokemon.ts",
+      "type": "registry:lib",
+      "content": "import { z } from \"zod\";\n\nexport async function getPokemonList({ limit = 10 }: { limit?: number } = {}) {\n  try {\n    const response = await fetch(\n      `https://pokeapi.co/api/v2/pokemon?limit=${limit}`\n    );\n    return z\n      .object({\n        results: z.array(z.object({ name: z.string() })),\n      })\n      .parse(await response.json());\n  } catch (error) {\n    console.error(error);\n    return null;\n  }\n}\n\nexport async function getPokemon(name: string) {\n  try {\n    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);\n\n    if (!response.ok) {\n      throw new Error(\"Failed to fetch pokemon\");\n    }\n\n    return z\n      .object({\n        name: z.string(),\n        id: z.number(),\n        sprites: z.object({\n          front_default: z.string(),\n        }),\n        stats: z.array(\n          z.object({\n            base_stat: z.number(),\n            stat: z.object({\n              name: z.string(),\n            }),\n          })\n        ),\n      })\n      .parse(await response.json());\n  } catch (error) {\n    console.error(error);\n    return null;\n  }\n}\n"
+    },
+    {
+      "path": "hooks/use-pokemon.ts",
+      "type": "registry:hook",
+      "content": "// This is a simple utility function that returns a Pokemon image URL.\n// In a real application, this could be a more complex hook with state management.\n\nexport function usePokemonImage(number: number) {\n  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;\n}\n"
+    }
+  ]
+}

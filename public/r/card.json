@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "A card component",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/ui/card.tsx",
+      "type": "registry:ui",
+      "content": "import { type JSX, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface CardProps extends JSX.HTMLAttributes<HTMLDivElement> {}\n\nfunction Card(props: CardProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return (\n    <div\n      class={cn(\n        \"rounded-xl border bg-card text-card-foreground shadow\",\n        local.class\n      )}\n      {...others}\n    />\n  );\n}\n\nfunction CardHeader(props: CardProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return (\n    <div\n      class={cn(\"flex flex-col space-y-1.5 p-6\", local.class)}\n      {...others}\n    />\n  );\n}\n\nfunction CardTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return (\n    <h3\n      class={cn(\"font-semibold leading-none tracking-tight\", local.class)}\n      {...others}\n    />\n  );\n}\n\nfunction CardDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return (\n    <p\n      class={cn(\"text-sm text-muted-foreground\", local.class)}\n      {...others}\n    />\n  );\n}\n\nfunction CardContent(props: CardProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return <div class={cn(\"p-6 pt-0\", local.class)} {...others} />;\n}\n\nfunction CardFooter(props: CardProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n  return (\n    <div\n      class={cn(\"flex items-center p-6 pt-0\", local.class)}\n      {...others}\n    />\n  );\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardDescription,\n  CardContent,\n};\n"
+    }
+  ]
+}

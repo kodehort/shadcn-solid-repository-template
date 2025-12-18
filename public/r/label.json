@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "title": "Label",
+  "description": "A label component",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/ui/label.tsx",
+      "type": "registry:ui",
+      "content": "import { type JSX, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface LabelProps extends JSX.LabelHTMLAttributes<HTMLLabelElement> {}\n\nfunction Label(props: LabelProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n\n  return (\n    <label\n      class={cn(\n        \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n        local.class\n      )}\n      {...others}\n    />\n  );\n}\n\nexport { Label };\n"
+    }
+  ]
+}

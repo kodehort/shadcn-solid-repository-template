@@ -1,0 +1,61 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "hello-world",
+      "type": "registry:block",
+      "title": "Hello World",
+      "description": "A simple hello world component"
+    },
+    {
+      "name": "example-form",
+      "type": "registry:block",
+      "title": "Example Form",
+      "description": "A contact form with Zod validation"
+    },
+    {
+      "name": "complex-component",
+      "type": "registry:block",
+      "title": "Complex Component",
+      "description": "A complex component showing hooks, libs and components"
+    },
+    {
+      "name": "example-with-css",
+      "type": "registry:block",
+      "title": "Example with CSS",
+      "description": "A login form with a CSS file"
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button component"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A card component"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "An input component"
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A label component"
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A textarea component"
+    }
+  ]
+}

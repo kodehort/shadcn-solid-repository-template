@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "type": "registry:ui",
+  "title": "Textarea",
+  "description": "A textarea component",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/ui/textarea.tsx",
+      "type": "registry:ui",
+      "content": "import { type JSX, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface TextareaProps\n  extends JSX.TextareaHTMLAttributes<HTMLTextAreaElement> {}\n\nfunction Textarea(props: TextareaProps) {\n  const [local, others] = splitProps(props, [\"class\"]);\n\n  return (\n    <textarea\n      class={cn(\n        \"flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50\",\n        local.class\n      )}\n      {...others}\n    />\n  );\n}\n\nexport { Textarea };\n"
+    }
+  ]
+}

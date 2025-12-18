@@ -1,0 +1,160 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "hello-world",
+      "type": "registry:block",
+      "title": "Hello World",
+      "description": "A simple hello world component",
+      "dependencies": ["@/registry/new-york/ui/button"],
+      "files": [
+        {
+          "path": "src/registry/new-york/blocks/hello-world/hello-world.tsx",
+          "type": "registry:component",
+          "target": "components/hello-world.tsx"
+        }
+      ]
+    },
+    {
+      "name": "example-form",
+      "type": "registry:block",
+      "title": "Example Form",
+      "description": "A contact form with Zod validation",
+      "dependencies": [
+        "zod",
+        "@/registry/new-york/ui/button",
+        "@/registry/new-york/ui/input",
+        "@/registry/new-york/ui/label",
+        "@/registry/new-york/ui/textarea",
+        "@/registry/new-york/ui/card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/new-york/blocks/example-form/example-form.tsx",
+          "type": "registry:component",
+          "target": "components/example-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "complex-component",
+      "type": "registry:block",
+      "title": "Complex Component",
+      "description": "A complex component showing hooks, libs and components",
+      "dependencies": ["zod", "@/registry/new-york/ui/card"],
+      "files": [
+        {
+          "path": "src/registry/new-york/blocks/complex-component/page.tsx",
+          "type": "registry:page",
+          "target": "app/pokemon/page.tsx"
+        },
+        {
+          "path": "src/registry/new-york/blocks/complex-component/components/pokemon-card.tsx",
+          "type": "registry:component",
+          "target": "components/pokemon-card.tsx"
+        },
+        {
+          "path": "src/registry/new-york/blocks/complex-component/components/pokemon-image.tsx",
+          "type": "registry:component",
+          "target": "components/pokemon-image.tsx"
+        },
+        {
+          "path": "src/registry/new-york/blocks/complex-component/lib/pokemon.ts",
+          "type": "registry:lib",
+          "target": "lib/pokemon.ts"
+        },
+        {
+          "path": "src/registry/new-york/blocks/complex-component/hooks/use-pokemon.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-pokemon.ts"
+        }
+      ]
+    },
+    {
+      "name": "example-with-css",
+      "type": "registry:block",
+      "title": "Example with CSS",
+      "description": "A login form with a CSS file",
+      "files": [
+        {
+          "path": "src/registry/new-york/blocks/example-with-css/example-card.tsx",
+          "type": "registry:component",
+          "target": "components/example-card.tsx"
+        },
+        {
+          "path": "src/registry/new-york/blocks/example-with-css/example-card.css",
+          "type": "registry:style",
+          "target": "components/example-card.css"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A card component",
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "An input component",
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A label component",
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A textarea component",
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    }
+  ]
+}
