@@ -6,7 +6,7 @@ This is a SolidJS port of the official [shadcn-ui/registry-template](https://git
 
 ## Features
 
-- **SolidJS Components**: All components are ported to use SolidJS patterns (signals, Show, For, etc.)
+- **SolidJS Components**: All example components are ported to use SolidJS patterns (signals, Show, For, etc.)
 - **SolidStart Framework**: Built on SolidStart for full-stack capabilities
 - **Tailwind CSS**: Styled with Tailwind CSS and CSS variables for theming
 - **TypeScript**: Full TypeScript support
@@ -17,20 +17,20 @@ This is a SolidJS port of the official [shadcn-ui/registry-template](https://git
 ### Prerequisites
 
 - Node.js 18+
-- pnpm (recommended) or npm
+- bun (recommended) or pnpm, npm
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/shadcn-solid-registry-template.git
+git clone https://github.com/kodehort/shadcn-solid-registry-template.git
 cd shadcn-solid-registry-template
 
 # Install dependencies
-pnpm install
+bun install
 
 # Start development server
-pnpm dev
+bun dev
 ```
 
 ### Building the Registry
@@ -38,7 +38,7 @@ pnpm dev
 To build the static registry JSON files:
 
 ```bash
-pnpm build:registry
+bun build:registry
 ```
 
 This will generate JSON files in the `public/r/` directory that can be served statically.
@@ -119,17 +119,6 @@ function MyComponent() {
 ### Customizing Theme
 
 Edit the CSS variables in `src/app.css` to customize the theme colors.
-
-## Differences from React Version
-
-| React | SolidJS |
-|-------|---------|
-| `useState` | `createSignal` |
-| `useEffect` | `createEffect` |
-| `{condition && <Component />}` | `<Show when={condition}><Component /></Show>` |
-| `{items.map(...)}` | `<For each={items}>{(item) => ...}</For>` |
-| `className` | `class` |
-| `React.forwardRef` | Not needed (refs work differently) |
 
 ## License
 
