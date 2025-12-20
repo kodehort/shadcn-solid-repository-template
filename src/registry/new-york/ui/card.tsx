@@ -19,10 +19,7 @@ function Card(props: CardProps) {
 function CardHeader(props: CardProps) {
   const [local, others] = splitProps(props, ["class"]);
   return (
-    <div
-      class={cn("flex flex-col space-y-1.5 p-6", local.class)}
-      {...others}
-    />
+    <div class={cn("flex flex-col space-y-1.5 p-6", local.class)} {...others} />
   );
 }
 
@@ -39,10 +36,7 @@ function CardTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
 function CardDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
   const [local, others] = splitProps(props, ["class"]);
   return (
-    <p
-      class={cn("text-sm text-muted-foreground", local.class)}
-      {...others}
-    />
+    <p class={cn("text-muted-foreground text-sm", local.class)} {...others} />
   );
 }
 
@@ -54,10 +48,7 @@ function CardContent(props: CardProps) {
 function CardFooter(props: CardProps) {
   const [local, others] = splitProps(props, ["class"]);
   return (
-    <div
-      class={cn("flex items-center p-6 pt-0", local.class)}
-      {...others}
-    />
+    <div class={cn("flex items-center p-6 pt-0", local.class)} {...others} />
   );
 }
 

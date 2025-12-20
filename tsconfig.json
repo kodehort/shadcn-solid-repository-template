@@ -15,7 +15,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strictNullChecks": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "scripts/**/*.mjs"]
 }

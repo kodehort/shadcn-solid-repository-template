@@ -1,9 +1,6 @@
 import { createSignal, Show } from "solid-js";
 import { z } from "zod";
 import { Button } from "@/registry/new-york/ui/button";
-import { Input } from "@/registry/new-york/ui/input";
-import { Label } from "@/registry/new-york/ui/label";
-import { Textarea } from "@/registry/new-york/ui/textarea";
 import {
   Card,
   CardContent,
@@ -12,6 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/new-york/ui/card";
+import { Input } from "@/registry/new-york/ui/input";
+import { Label } from "@/registry/new-york/ui/label";
+import { Textarea } from "@/registry/new-york/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -73,50 +73,50 @@ export function ExampleForm() {
           <div class="space-y-2">
             <Label for="name">Name</Label>
             <Input
-              id="name"
-              type="text"
-              placeholder="Your name"
-              value={formData().name}
-              onInput={updateField("name")}
-              disabled={isPending()}
               aria-invalid={!!errors().name}
+              disabled={isPending()}
+              id="name"
+              onInput={updateField("name")}
+              placeholder="Your name"
+              type="text"
+              value={formData().name}
             />
             <Show when={errors().name}>
-              <p class="text-sm text-destructive">{errors().name}</p>
+              <p class="text-destructive text-sm">{errors().name}</p>
             </Show>
           </div>
           <div class="space-y-2">
             <Label for="email">Email</Label>
             <Input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              value={formData().email}
-              onInput={updateField("email")}
-              disabled={isPending()}
               aria-invalid={!!errors().email}
+              disabled={isPending()}
+              id="email"
+              onInput={updateField("email")}
+              placeholder="you@example.com"
+              type="email"
+              value={formData().email}
             />
             <Show when={errors().email}>
-              <p class="text-sm text-destructive">{errors().email}</p>
+              <p class="text-destructive text-sm">{errors().email}</p>
             </Show>
           </div>
           <div class="space-y-2">
             <Label for="message">Message</Label>
             <Textarea
+              aria-invalid={!!errors().message}
+              disabled={isPending()}
               id="message"
+              onInput={updateField("message")}
               placeholder="Your message"
               value={formData().message}
-              onInput={updateField("message")}
-              disabled={isPending()}
-              aria-invalid={!!errors().message}
             />
             <Show when={errors().message}>
-              <p class="text-sm text-destructive">{errors().message}</p>
+              <p class="text-destructive text-sm">{errors().message}</p>
             </Show>
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" class="w-full" disabled={isPending()}>
+          <Button class="w-full" disabled={isPending()} type="submit">
             {isPending() ? "Sending..." : "Send Message"}
           </Button>
         </CardFooter>

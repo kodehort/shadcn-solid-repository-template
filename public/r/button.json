@@ -4,9 +4,7 @@
   "type": "registry:ui",
   "title": "Button",
   "description": "A button component",
-  "dependencies": [
-    "class-variance-authority"
-  ],
+  "dependencies": ["class-variance-authority"],
   "files": [
     {
       "path": "components/ui/button.tsx",

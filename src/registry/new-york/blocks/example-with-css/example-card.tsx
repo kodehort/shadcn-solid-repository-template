@@ -10,27 +10,29 @@ export function ExampleCard() {
           <div class="form-group">
             <label for="email">Email</label>
             <input
-              type="email"
               id="email"
               placeholder="you@example.com"
               required
+              type="email"
             />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input
-              type="password"
               id="password"
               placeholder="Enter your password"
               required
+              type="password"
             />
           </div>
-          <button type="submit" class="login-button">
+          <button class="login-button" type="submit">
             Sign In
           </button>
         </form>
         <div class="login-footer">
-          <a href="#">Forgot password?</a>
+          <button class="forgot-password-link" type="button">
+            Forgot password?
+          </button>
         </div>
       </div>
     </div>

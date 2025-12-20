@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Hello World",
   "description": "A simple hello world component",
-  "dependencies": [
-    "@/registry/new-york/ui/button"
-  ],
+  "dependencies": ["@/registry/new-york/ui/button"],
   "files": [
     {
       "path": "components/hello-world.tsx",

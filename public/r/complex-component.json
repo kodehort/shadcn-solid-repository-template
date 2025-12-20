@@ -4,10 +4,7 @@
   "type": "registry:block",
   "title": "Complex Component",
   "description": "A complex component showing hooks, libs and components",
-  "dependencies": [
-    "zod",
-    "@/registry/new-york/ui/card"
-  ],
+  "dependencies": ["zod", "@/registry/new-york/ui/card"],
   "files": [
     {
       "path": "app/pokemon/page.tsx",
